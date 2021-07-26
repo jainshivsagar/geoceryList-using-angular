@@ -1,0 +1,6 @@
+<form (ngSubmit)="onSubmitA(form1.value)" #form1="ngForm">
+  <input type="text" name="itemName" placeholder="Item Name" ngModel />
+  <input type="number" name="itemUnits" placeholder="Units" ngModel />
+  <input type="number" name="itemPrice" placeholder="Price Per Unit" ngModel />
+  <input type="submit" name="addItem" value="Add Item" />
+</form>

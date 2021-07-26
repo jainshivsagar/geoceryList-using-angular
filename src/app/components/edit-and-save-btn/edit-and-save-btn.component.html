@@ -1,0 +1,12 @@
+<fa-icon
+  class="editIcon"
+  *ngIf="!isEditBtnClicked"
+  [icon]="faEdit"
+  (click)="onClick($event)"
+></fa-icon>
+<fa-icon
+  class="saveIcon"
+  *ngIf="isEditBtnClicked"
+  [icon]="faSave"
+  (click)="onClick($event)"
+></fa-icon>
