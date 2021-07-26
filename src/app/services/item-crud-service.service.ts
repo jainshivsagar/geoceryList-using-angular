@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { counter } from '@fortawesome/fontawesome-svg-core';
 import {Item} from '../Model/Item';
 @Injectable({
   providedIn: 'root'
@@ -44,7 +43,7 @@ export class ItemCrudServiceService {
   addItem(item:Item){
 
     ItemCrudServiceService.counter+=1;
-    item.id= ItemCrudServiceService.counter;
+    item.id=ItemCrudServiceService.counter;
     this.items.push(item)
     localStorage.setItem(""+item.id,JSON.stringify(item));
     localStorage.setItem("counter",""+item.id);
@@ -66,9 +65,7 @@ export class ItemCrudServiceService {
       element.name=item.name;
       element.units=item.units;
       element.pricePerUnit=item.pricePerUnit;
-      element.total=item.total;
     })
-
     localStorage.setItem(""+item.id,JSON.stringify(item));
   }
 }
