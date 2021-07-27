@@ -8,6 +8,7 @@ import { FormComponent } from './components/form/form.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { EditAndSaveBtnComponent } from './components/edit-and-save-btn/edit-and-save-btn.component';
 import { TableComponent } from './components/table/table.component';
+import { ItemCrudServiceService } from './services/item-crud-service.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { TableComponent } from './components/table/table.component';
     FormsModule,
     FontAwesomeModule
   ],
-  providers: [],
+  providers: [ItemCrudServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
