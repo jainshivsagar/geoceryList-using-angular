@@ -1,5 +1,5 @@
 import { Component ,Input,OnInit} from '@angular/core';
-import { faEdit,faTrashAlt, faSave} from '@fortawesome/free-solid-svg-icons';
+import { faTrashAlt} from '@fortawesome/free-solid-svg-icons';
 import { Item } from './Model/Item';
 import{ItemCrudServiceService} from './services/item-crud-service.service'
 
@@ -14,13 +14,11 @@ export class AppComponent implements OnInit{
   grandTotal:number=0;
   private itemCrudServices:ItemCrudServiceService=new ItemCrudServiceService();
   
-  faEdit=faEdit;
   faTrashAlt=faTrashAlt;
-  faSave=faSave; 
+
 
   constructor(){
     this.items=[];
-    // this.items=this.itemCrudServices.readItems();
   }
   ngOnInit():void{
     this.itemCrudServices.loadItemsFromLocalStorage();
@@ -28,13 +26,16 @@ export class AppComponent implements OnInit{
     this.items=this.itemCrudServices.readItems();
 
     this.items.forEach((element:Item)=>{
-      this.grandTotal+=element.getTotal();
+      this.grandTotal+=element.getTotal;
     })
   }
-  addItem(data:any){
-    let newItem:Item=new Item(data.itemName, data.itemUnits, data.itemPrice);
+  addItem(data:Item){
+    let newItem:Item=new Item();
+    newItem.name=data.name;
+    newItem.units=data.units;
+    newItem.pricePerUnit=data.pricePerUnit;
     
-    this.grandTotal+=newItem.getTotal();
+    this.grandTotal+=newItem.getTotal;
 
     this.itemCrudServices.addItem(newItem);
   }
@@ -59,11 +60,15 @@ export class AppComponent implements OnInit{
       itemUnitsTD.contentEditable=false;
       itemPriceTD.contentEditable=false;
 
-      let item:Item=new Item(itemNameTD.textContent, parseInt(itemUnitsTD.textContent),parseInt(itemPriceTD.textContent));
+      let item:Item=new Item();
+
+      item.name=itemNameTD.textContent;
+      item.units=parseInt(itemUnitsTD.textContent);
+      item.pricePerUnit=parseInt(itemPriceTD.textContent)
 
       item.id=parseInt(itemIdTD.textContent);
 
-      let diff=parseInt(itemTotalTD.textContent)-item.getTotal();
+      let diff=parseInt(itemTotalTD.textContent)-item.getTotal;
       this.grandTotal-=diff;
       this.itemCrudServices.updateItem(item)
     }
@@ -79,7 +84,7 @@ export class AppComponent implements OnInit{
     
     if(item){
       this.items=this.itemCrudServices.deleteItem(item);
-      this.grandTotal-=item.getTotal();
+      this.grandTotal-=item.getTotal;
       
     }else{
       alert("Item Dose Not Exist")

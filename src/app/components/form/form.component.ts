@@ -15,6 +15,7 @@ export class FormComponent implements OnInit {
   }
 
   onSubmitA(data:Item){
+    console.log(data);
     this.onSubmitEvent.emit(data);
   }
 }

@@ -28,7 +28,13 @@ export class ItemCrudServiceService {
       }
       itemIds.sort();
       itemIds.forEach((id) => {
-        let item = JSON.parse(localStorage[id]);
+        let temp = JSON.parse(localStorage[id]);
+        let item:Item=new Item();
+        item.id=temp._id;
+        item.name=temp._name;
+        item.units=temp._units;
+        item.pricePerUnit=temp._pricePerUnit;
+
         this.items.push(item);
       });
     } else {

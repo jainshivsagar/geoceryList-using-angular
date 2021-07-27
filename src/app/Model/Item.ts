@@ -5,14 +5,14 @@ export class Item{
     private _pricePerUnit:number;
 
 
-    constructor( name:string, units:number, pricePerUnit:number){
-        this._id=0;//default
-        this._name=name;
-        this._units=units;
-        this._pricePerUnit=pricePerUnit;
-    }
+	constructor(){
+		this._id=0;//defau
+		this._name="";
+		this._units=0;
+		this._pricePerUnit=0;
+	}
     
-	public get id(): number {
+	public get id(): number { 
 		return this._id;
 	}
 
@@ -25,6 +25,7 @@ export class Item{
 	}
 
 	public set name(value: string) {
+
 		this._name = value;
 	}
 
@@ -44,7 +45,7 @@ export class Item{
 		this._pricePerUnit = value;
 	}
 
-	getTotal():number{
+	public get getTotal():number{
         return this._units*this._pricePerUnit;
     }
 }
