@@ -13,59 +13,7 @@ h1 {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
   padding: 0px 10px;
 }
-.table-div {
-  width: 100%;
-  margin: 20px;
-}
-#table1 {
-  width: 100%;
-  height: fit-content;
-  background: lightgrey;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-}
 
-th {
-  font-size: 1.2rem;
-  font-weight: 900;
-}
-
-#table1,
-#table1 th,
-#table1 td {
-  /* border: 1px solid white; */
-  text-align: center;
-  padding: 1%;
-}
-#table1Body td {
-  border-bottom: 0;
-  border-top: 0;
-  font-size: 1.2rem;
-}
-#table1Body .editTD {
-  border-right: 0;
-}
-#table1Body .deleteTD {
-  border-left: 0;
-}
-#table1Heading,
-#table1Footer {
-  background: antiquewhite;
-}
-#table1Footer {
-  font-size: 1rem;
-  font-weight: 700;
-}
-#table1Footer td {
-  text-align: right;
-  padding-right: 5%;
-}
-#table1Footer #grandTotalTD {
-  text-align: left;
-  padding: 0px 0px 0px 30px;
-}
-.deleteIcon {
-  color: red;
-}
-.hidden {
-  display: none;
+app-table {
+  width: 100%;
 }

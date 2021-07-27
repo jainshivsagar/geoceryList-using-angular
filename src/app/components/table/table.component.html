@@ -1,0 +1,43 @@
+<div class="table-div">
+  <table id="table1">
+    <thead id="table1Heading">
+      <tr>
+        <th>Item Name</th>
+        <th>Units</th>
+        <th>Price Per Unit</th>
+        <th colspan="3" style="text-align: left; padding: 0px 0px 0px 10px">
+          Total
+        </th>
+      </tr>
+    </thead>
+    <tbody id="table1Body">
+      <tr *ngFor="let item of items">
+        <td>{{ item.name }}</td>
+        <td>{{ item.units }}</td>
+        <td>{{ item.pricePerUnit }}</td>
+        <td>{{ item.getTotal }}</td>
+        <td class="editTD">
+          <app-edit-and-save-btn
+            (btnClick)="editItem($event)"
+          ></app-edit-and-save-btn>
+        </td>
+        <td class="deleteTD">
+          <fa-icon
+            class="deleteIcon"
+            [icon]="faTrashAlt"
+            (click)="deleteItem($event)"
+          ></fa-icon>
+        </td>
+        <td class="hidden">
+          {{ item.id }}
+        </td>
+      </tr>
+    </tbody>
+    <tfoot id="table1Footer">
+      <tr>
+        <td colspan="3">Grand Total:-</td>
+        <td id="grandTotalTD" colspan="3">{{ grandTotal }}</td>
+      </tr>
+    </tfoot>
+  </table>
+</div>
